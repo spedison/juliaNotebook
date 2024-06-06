@@ -1,1 +1,1 @@
-docker image build -t julia-notebook:latest .
+docker image build -t spedison/julia-notebook:latest .
