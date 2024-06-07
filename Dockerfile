@@ -11,7 +11,8 @@ RUN apt-get update; \
     echo "c.NotebookApp.ip = '0.0.0.0'" >>  /root/.jupyter/jupyter_notebook_config.py ; \
     echo "c.NotebookApp.allow_origin = '*'" >>  /root/.jupyter/jupyter_notebook_config.py ; \
     echo "c.NotebookApp.port = 8888" >> /root/.jupyter/jupyter_notebook_config.py ; \
-    echo "c.NotebookApp.allow_root = True" >> /root/.jupyter/jupyter_notebook_config.py ; 
+    echo "c.NotebookApp.allow_root = True" >> /root/.jupyter/jupyter_notebook_config.py ; \
+    echo "c.NotebookApp.allow_remote_access = True" >> /root/.jupyter/jupyter_notebook_config.py ; 
         
     
 WORKDIR /working
