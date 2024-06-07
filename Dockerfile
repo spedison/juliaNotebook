@@ -4,9 +4,15 @@ MAINTAINER spedison
 
 RUN apt-get update; \
     apt-get install -y  python3 jupyter python3-pandas python3-pandas-lib python3-sklearn-pandas python3-matplotlib jupyter-notebook; \
-    /usr/bin/julia -e  "println(\"Installando pacotes\");using Pkg; Pkg.add(\"IJulia\");Pkg.add(\"Plots\");println(\"Instalacao terminada\");" ; \
+    /usr/local/julia/bin/julia -e  "println(\"Installando pacotes\");using Pkg; Pkg.add(\"IJulia\");Pkg.add(\"Plots\");println(\"Instalacao terminada\");" ; \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
-    mkdir /working
+    mkdir /working; \
+    jupyter notebook --generate-config ; \
+    echo "c.NotebookApp.ip = '0.0.0.0'" >>  /root/.jupyter/jupyter_notebook_config.py ; \
+    echo "c.NotebookApp.allow_origin = '*'" >>  /root/.jupyter/jupyter_notebook_config.py ; \
+    echo "c.NotebookApp.port = 8888" >> /root/.jupyter/jupyter_notebook_config.py ; \
+    echo "c.NotebookApp.allow_root = True" >> /root/.jupyter/jupyter_notebook_config.py ; 
+        
     
 WORKDIR /working
 
