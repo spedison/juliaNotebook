@@ -10,5 +10,7 @@ RUN apt-get update; \
     
 WORKDIR /working
 
+EXPOSE 8888
+
 #ENTRYPOINT ["/usr/bin/jupyter","notebook","--ip=0.0.0.0","--allow-root"]
-#CMD ["/usr/bin/jupyter","notebook","--ip=0.0.0.0","--allow-root"]
+CMD ["/usr/bin/jupyter","notebook","--ip=0.0.0.0","--allow-root"]
