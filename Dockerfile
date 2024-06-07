@@ -8,6 +8,7 @@ RUN apt-get update; \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
     mkdir /working; \
     jupyter notebook --generate-config ; \
+    echo "" >>  /root/.jupyter/jupyter_notebook_config.py ; \
     echo "c.NotebookApp.ip = '0.0.0.0'" >>  /root/.jupyter/jupyter_notebook_config.py ; \
     echo "c.NotebookApp.allow_origin = '*'" >>  /root/.jupyter/jupyter_notebook_config.py ; \
     echo "c.NotebookApp.port = 8888" >> /root/.jupyter/jupyter_notebook_config.py ; \
